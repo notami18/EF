@@ -9,14 +9,8 @@ namespace EF.Models
 {
   public class Task
   {
-    [Key]
     public Guid TaskId { get; set; }
-
-    [ForeignKey("CategoryId")]
     public Guid CategoryId { get; set; }
-
-    [Required]
-    [MaxLength(200)]
     public string? Title { get; set; }
     public string? Description { get; set; }
     public Priority PriorityTask { get; set; }
@@ -24,7 +18,7 @@ namespace EF.Models
 
     public virtual Category? Category { get; set; }
 
-    [NotMapped] // This property will not be mapped to the database
+    //[NotMapped] // This property will not be mapped to the database
     public string? Resumen { get; set; }
   }
 
