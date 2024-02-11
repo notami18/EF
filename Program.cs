@@ -4,7 +4,8 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<TaksContext>(p => p.UseInMemoryDatabase("TasksDB"));
+// builder.Services.AddDbContext<TaksContext>(p => p.UseInMemoryDatabase("TasksDB"));
+builder.Services.AddNpgsql<TaksContext>(builder.Configuration.GetConnectionString("TasksDBPostgres"));
 
 var app = builder.Build();
 
